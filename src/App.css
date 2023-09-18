@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainList{
+  float: left;
+  width: 95%;
+  border: 3px solid grey;
+  margin: 10px;
+  padding: 30px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.titleProduct{
+   flex: 20%;
+   float: left;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.childList{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.imgProduct{
+  flex: 5%;
+}
+.btnList{
+  flex: 25%;
+  float: right;
+}
+.ProductDescription{
+  word-wrap: break-word;
+  flex: 40%;
+  width: 50px;
+}
+.img-fluid{
+  height: 65%;
+}
+.maincointainer{
+  margin: 100px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+   
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.topnav .icon {
+  display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 600px) {
+  
+  .topnav a.icon {
+    float: right;
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.AddProductMain{
+  margin: 7% 25%;
+  width: 50%;
+  padding: 60px;
+  background-color: antiquewhite;
+  border: 3px solid gray;
 }

@@ -1,23 +1,48 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import AddToProduct from './component/AddToProduct';
+import CartItem from './component/CartItem';
+import DetailPage from './component/DetailPage';
+import Navbarr from './component/Navbarr';
+import ProductList from './component/ProductList';
+import { Routes, Route } from "react-router-dom";
+
 
 function App() {
+  const [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    fetchList();
+}, [])
+
+
+const fetchList = async () => {
+
+  fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => {
+          let tempArr = [];
+          data.map((ele) => {
+              tempArr.push(ele);
+          })
+          setProductList(tempArr);
+      })
+      .catch((err) => {
+          console.log(err.message);
+      });
+
+}
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbarr />
+        <Routes>
+          <Route path="/" element={<ProductList productList={productList} setProductList={setProductList}/>}></Route>
+          <Route path="/detailPage" element={<DetailPage/>}/>
+          <Route path="/addToProduct" element={<AddToProduct productList={productList} setProductList={setProductList}/>}/>
+          <Route path="/cartItem" element={<CartItem/>}/>
+        </Routes>
     </div>
   );
 }
